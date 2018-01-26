@@ -1,4 +1,4 @@
-FROM node:6
+FROM node:8
 MAINTAINER Jonas Su <jonas@25sprout.com>
 
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
