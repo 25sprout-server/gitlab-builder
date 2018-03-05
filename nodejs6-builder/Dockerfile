@@ -2,8 +2,8 @@ FROM node:6
 MAINTAINER Jonas Su <jonas@25sprout.com>
 
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
-    && echo "deb http://dl.yarnpkg.com/debian/ stable main" > /etc/apt/sources.list.d/yarn.list
-RUN apt-get -qq update \
+    && echo "deb http://dl.yarnpkg.com/debian/ stable main" > /etc/apt/sources.list.d/yarn.list \
+    && apt-get -qq update \
     && apt-get -qqy upgrade \
     && apt-get install -qqy yarn openssh-client \
     && apt-get clean \
