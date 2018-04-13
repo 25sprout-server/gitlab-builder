@@ -49,3 +49,6 @@ RUN apt-get install -qqy \
     mysql-client \
     zip unzip \
     && apt-get clean
+
+# Install npm packages
+RUN npm install -g ajv-cli

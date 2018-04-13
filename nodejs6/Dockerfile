@@ -13,3 +13,10 @@ RUN apt-get -qq update \
     && apt-get -qqy upgrade \
     && apt-get install -qqy awscli \
     && apt-get clean
+
+RUN apt-get -qq update \
+    && apt-get -qqy upgrade \
+    && apt-get install -qqy curl jq \
+    && apt-get clean
+
+RUN npm install -g ajv-cli
