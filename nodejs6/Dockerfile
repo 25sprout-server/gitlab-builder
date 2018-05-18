@@ -20,3 +20,8 @@ RUN apt-get -qq update \
     && apt-get clean
 
 RUN npm install -g ajv-cli
+
+RUN apt-get -qq update \
+    && apt-get -qqy upgrade \
+    && apt-get install -qqy rsync \
+    && apt-get clean
