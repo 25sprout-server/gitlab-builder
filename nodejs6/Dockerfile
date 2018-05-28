@@ -25,3 +25,8 @@ RUN apt-get -qq update \
     && apt-get -qqy upgrade \
     && apt-get install -qqy rsync \
     && apt-get clean
+
+RUN apt-get -qq update \
+    && apt-get -qqy upgrade \
+    && apt-get install -qqy zip unzip \
+    && apt-get clean
