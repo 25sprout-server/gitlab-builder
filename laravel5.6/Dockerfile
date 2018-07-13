@@ -10,6 +10,9 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" &&
     mv composer.phar /usr/local/bin/composer && \
     composer global require "laravel/installer"
 
+RUN composer global require "laravel/installer" && \
+    ln -s /root/.config/composer/vendor/bin/laravel /usr/local/bin
+
 # Expose apache.
 EXPOSE 80
 
