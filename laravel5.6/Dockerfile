@@ -13,6 +13,13 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" &&
 RUN composer global require "laravel/installer" && \
     ln -s /root/.config/composer/vendor/bin/laravel /usr/local/bin
 
+ARG UNAME=user
+ARG UID=1000
+ARG GID=1000
+RUN groupadd -g $GID $UNAME
+RUN useradd -m -u $UID -g $GID -s /bin/bash $UNAME
+USER $UNAME
+
 # Expose apache.
 EXPOSE 80
 

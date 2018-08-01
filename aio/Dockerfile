@@ -41,11 +41,18 @@ RUN apt-get install -qqy python-pip \
     && export PATH=/root/.local/bin:$PATH \
     && mkdir -p /root/.aws
 
+# Install format tools
+RUN apt-get -qq update \
+    && apt-get -qqy upgrade \
+    && apt-get install -qqy \
+    libxml2-utils \
+    jq \
+    && apt-get clean
+
 # Install other tools
 RUN apt-get install -qqy \
     openssh-client \
     lftp \
-    jq \
     mysql-client \
     zip unzip \
     && apt-get clean
