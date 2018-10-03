@@ -34,14 +34,8 @@ RUN apt-get -qqy install apt-transport-https lsb-release ca-certificates && \
 RUN ln -sf /dev/stdout /var/log/apache2/access.log && \
     ln -sf /dev/stderr /var/log/apache2/error.log
 
-#ADD surveycake.conf /etc/apache2/sites-enabled/000-default.conf
-#ADD php.ini /etc/php5/apache2/php.ini
-
-#RUN ls -l /usr/local/etc/php/conf.d
-#RUN sed -i -e"s/allow_url_fopen.*/allow_url_fopen = On/" /etc/php5/apache2/php.ini ;
-
 RUN usermod -u 1000 www-data
-RUN usermod -G staff www-data
+RUN usermod -G 1000 www-data
 
 # Expose apache.
 EXPOSE 80
