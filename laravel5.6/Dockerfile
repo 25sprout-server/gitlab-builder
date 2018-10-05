@@ -3,12 +3,19 @@ MAINTAINER Jonas Su <jonas@25sprout.com>
 
 ENV DEBIAN_FRONTEND noninteractive
 
+RUN apt-get -qq update \
+    && apt-get -qqy install \
+    apt-utils wget curl screen zip unzip jq libxml2-utils rsync openssh-client \
+    && apt-get clean \
+    && apt-get autoclean \
+    && rm -rf /var/lib/apt/lists
+
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
     && echo "deb https://dl.yarnpkg.com/debian/ stable main" > /etc/apt/sources.list.d/yarn.list
 
 RUN apt-get -qq update \
     && apt-get -qqy install \
-    apt-utils wget curl screen zip unzip jq libxml2-utils rsync yarn openssh-client \
+    yarn \
     && apt-get clean \
     && apt-get autoclean \
     && rm -rf /var/lib/apt/lists
