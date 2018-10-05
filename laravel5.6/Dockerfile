@@ -5,7 +5,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get -qq update \
     && apt-get -qqy install \
-    apt-utils wget curl screen zip unzip jq libxml2-utils rsync openssh-client \
+    apt-utils wget gnupg curl screen zip unzip jq libxml2-utils rsync openssh-client \
     && apt-get clean \
     && apt-get autoclean \
     && rm -rf /var/lib/apt/lists
