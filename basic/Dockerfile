@@ -19,7 +19,7 @@ RUN apt-get -qq update \
 
 RUN apt-get -qq update \
     && apt-get -qqy upgrade \
-    && apt-get install -qqy wjq libxml2-utils \
+    && apt-get install -qqy jq libxml2-utils \
     && apt-get clean \
     && apt-get autoclean \
     && rm -rf /var/lib/apt/lists
